@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Answers Test Experience</title>
+    <!-- Answers CSS-->
+    <link rel="stylesheet" type="text/css" href="https://assets.sitescdn.net/answers/v1/answers.css" />
+
+    <!-- Answers Layout styling -->
+    <style>
+        .answers-layout {
+            max-width: 50rem;
+            margin: auto;
+        }
+    </style>
+
+    <!-- Answers JS-->
+    <script src="https://assets.sitescdn.net/answers/v1/answers.min.js"></script>
+</head>
+
+<body>
+    <div class="answers-layout">
+        <div class="search-bar"></div>
+        <div class="spell-check"></div>
+        <div class="navigation-container"></div>
+        <div class="direct-answer"></div>
+        <div class="universal-results"></div>
+        <div class="vertical-container-location"></div>
+        <div class="location-bias"></div>
+    </div>
+</body>
+
+<script>
+    ANSWERS.init({
+        apiKey: "3517add824e992916861b76e456724d9", //sample test experience
+        experienceKey: "answers-js-docs", //sample test experience
+        businessId: "3215760", //sample test experience
+        //useTemplates: true,
+        locale: "en",
+        debug: true,
+        verticalPages: [
+            {
+                label: "Home",
+                url: "./index.html",
+                icon: "star",
+                isFirst: true,
+                isActive: true,
+                hideInNavigation: false
+            },
+            {
+                label: "Locations",
+                url: "./locations.html",
+                verticalKey: "locations",
+                icon: "pin",
+                isFirst: false,
+                isActive: false,
+                hideInNavigation: false
+            }
+        ],
+        //templateBundle:
+        experienceVersion: "PRODUCTION",
+        onReady: function () {
+            // init components
+            this.addComponent("SearchBar", {
+                container: ".search-bar",
+                placeholderText: "Questions? I got Answers"
+            });
+            this.addComponent("SpellCheck", {
+                container: ".spell-check"
+            });
+            this.addComponent("Navigation", {
+                container: ".navigation-container"
+            });
+            this.addComponent("DirectAnswer", {
+                container: ".direct-answer"
+            });
+            this.addComponent("UniversalResults", {
+                container: ".universal-results"
+            });
+            this.addComponent("LocationBias", {
+                container: ".location-bias"
+            });
+        }
+    });
+</script>
+
+</html>
