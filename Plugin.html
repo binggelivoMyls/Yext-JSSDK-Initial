@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <link rel="stylesheet" type="text/css" href="https://assets.sitescdn.net/answers/v1/answers.css" />
+    <script src="https://assets.sitescdn.net/answers/v1/answers.min.js" onload="ANSWERS.domReady(inithAnswers)" defer
+        async></script>
+
+    <style>
+        .answers-layout {
+            min-height: 100px;
+        }
+    </style>
+
+    <div class="answers-layout content">
+        <div class="search-bar"></div>
+        <div class="spell-check"></div>
+        <div class="navigation-container"></div>
+        <div class="direct-answer"></div>
+        <div class="universal-results"></div>
+        <div class="location-bias"></div>
+    </div>
+
+    <script>
+        function inithAnswers() {
+            ANSWERS.init({
+                apiKey: '1e9b137e7bd19ac394f0a8c63a7351aa',
+                experienceKey: 'faq',
+                businessId: "",
+                useTemplates: true,
+                locale: "de",
+                debug: true,
+                verticalPages: [
+                    {
+                        label: "Home",
+                        url: "index.html",
+                        icon: "star",
+                        isFirst: true,
+                        isActive: true,
+                        hideInNavigation: false
+                    },
+                    {
+                        label: "Locations",
+                        url: "/locations.html",
+                        verticalKey: "locations",
+                        icon: "pin",
+                        isFirst: false,
+                        isActive: false,
+                        hideInNavigation: false
+                    }
+                ],
+                //templateBundle:
+                experienceVersion: "PRODUCTION",
+                onReady: function () {
+                    // init components
+                    this.addComponent("SearchBar", {
+                        container: ".search-bar",
+                        // Optional, defaults to 'Conduct a search'
+                        labelText: 'What are you looking for?',
+                        // Optional, used for labeling the submit button, also provided to the template
+                        submitText: 'Suchen',
+                        // Optional, used for labeling the clear button, also provided to the template
+                        clearText: 'Löschen',
+                        // Optional, a url for a custom icon for the submit button. Defaults to Animated Magnifying glass when CSS is included.
+                        customIconUrl: 'https://evard-ch.mls-test.ch/wp-content/uploads/2021/12/128x128.png',
+                        // Optional, no default
+                        placeholderText: 'Fragen Sie uns etwas...',
+                        // Optional, auto focuses the search bar. Defaults to false
+                        autoFocus: false,
+                        // Optional, opens the autocomplete suggestions on page load. Defaults to false. Requires autoFocus to be set to true
+                        autocompleteOnLoad: true,
+                        // Optional, allows a user to conduct an empty search. Should be set to true if the defaultInitialSearch is "".
+                        allowEmptySearch: false,
+                        // Optional, asks the user for their geolocation when "near me" intent is detected
+                        promptForLocation: true,
+                    });
+                    this.addComponent("SpellCheck", {
+                        container: ".spell-check"
+                    });
+                    this.addComponent("Navigation", {
+                        container: ".navigation-container"
+                    });
+                    this.addComponent("DirectAnswer", {
+                        container: ".direct-answer"
+                    });
+                    this.addComponent("UniversalResults", {
+                        container: ".universal-results"
+                    });
+                    this.addComponent("LocationBias", {
+                        container: ".location-bias"
+                    });
+                }
+            });
+        }
+
+    </script>
+</body>
+
+</html>
